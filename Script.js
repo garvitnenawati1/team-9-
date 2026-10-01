@@ -16,6 +16,7 @@ const FRUITS = [
   "🍊",
   "🍋",
   "🍇",
+  "🍌"
   
 ];
 
@@ -787,7 +788,11 @@ function update(dt) {
    BACKGROUND
 ========================= */
 
-function drawBackground() {
+
+  function drawBackground() {
+
+  const isLight =
+    document.body.classList.contains("light");
 
   const gradient =
     ctx.createLinearGradient(
@@ -797,25 +802,42 @@ function drawBackground() {
       H
     );
 
+  if (isLight) {
 
-  gradient.addColorStop(
-    0,
-    "#302044"
-  );
+    gradient.addColorStop(
+      0,
+      "#9ddcff"
+    );
 
-  gradient.addColorStop(
-    0.55,
-    "#59385f"
-  );
+    gradient.addColorStop(
+      0.55,
+      "#c9f0ff"
+    );
 
-  gradient.addColorStop(
-    1,
-    "#1f172d"
-  );
+    gradient.addColorStop(
+      1,
+      "#e8f7d8"
+    );
 
+  } else {
 
-  ctx.fillStyle =
-    gradient;
+    gradient.addColorStop(
+      0,
+      "#302044"
+    );
+
+    gradient.addColorStop(
+      0.55,
+      "#59385f"
+    );
+
+    gradient.addColorStop(
+      1,
+      "#1f172d"
+    );
+  }
+
+  ctx.fillStyle = gradient;
 
   ctx.fillRect(
     0,
@@ -824,6 +846,10 @@ function drawBackground() {
     H
   );
 
+
+  // KEEP EVERYTHING BELOW THIS
+  // exactly as it was
+}
 
   /* MOON */
 
@@ -1271,3 +1297,18 @@ $("btn").addEventListener(
 reset();
 
 draw();
+
+const themeToggle =
+  document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", () => {
+
+  document.body.classList.toggle("light");
+
+  const isLight =
+    document.body.classList.contains("light");
+
+  themeToggle.textContent =
+    isLight ? "🌙" : "☀️";
+
+});
