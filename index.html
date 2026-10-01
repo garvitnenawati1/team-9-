@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orchard Catch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main>
+
+  <header>
+    <h1>🍎 Orchard Catch</h1>
+
+    <div class="stats">
+      <span>Score <b id="score">0</b></span>
+      <span>Combo <b id="combo">x1</b></span>
+      <span>Time <b id="time">60</b></span>
+      <span>Best <b id="best">0</b></span>
+      <span id="lives" aria-label="Lives">❤️❤️❤️</span>
+    </div>
+  </header>
+
+  <div class="stage">
+
+    <canvas id="game" width="480" height="640"></canvas>
+
+    <div id="overlay">
+
+      <h2 id="title">🍎 Catch the Fruit 🍎</h2>
+
+      <p id="msg">
+        Move with ← → or A / D<br>
+        Catch fruit, build combos and grab ⭐<br>
+        Dodge the 💣!
+      </p>
+
+      <button id="btn">Start Game</button>
+
+    </div>
+
+  </div>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
